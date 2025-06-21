@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWOT Analysis - Arctic Presentation Template</title>
+    <link rel="stylesheet" href="../styles/arctic-theme.css">
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide">
+            <div class="slide-header">
+                <div>
+                    <h1 class="slide-title">SWOT Analysis</h1>
+                    <p class="slide-subtitle">Strategic Assessment</p>
+                </div>
+                <div class="logo-space">LOGO</div>
+            </div>
+            <div class="slide-content">
+                <div class="swot-grid">
+                    <div class="swot-item swot-strengths">
+                        <h3 class="swot-title">💪 Strengths</h3>
+                        <ul class="swot-list">
+                            <li>Strong community partnerships</li>
+                            <li>Experienced team</li>
+                            <li>Proven track record</li>
+                            <li>Adequate funding</li>
+                        </ul>
+                    </div>
+                    <div class="swot-item swot-weaknesses">
+                        <h3 class="swot-title">⚠️ Weaknesses</h3>
+                        <ul class="swot-list">
+                            <li>Limited technical resources</li>
+                            <li>Geographic constraints</li>
+                            <li>Seasonal workforce</li>
+                            <li>Aging infrastructure</li>
+                        </ul>
+                    </div>
+                    <div class="swot-item swot-opportunities">
+                        <h3 class="swot-title">🌟 Opportunities</h3>
+                        <ul class="swot-list">
+                            <li>Federal grant programs</li>
+                            <li>Technology advancement</li>
+                            <li>New partnerships</li>
+                            <li>Policy changes</li>
+                        </ul>
+                    </div>
+                    <div class="swot-item swot-threats">
+                        <h3 class="swot-title">⚡ Threats</h3>
+                        <ul class="swot-list">
+                            <li>Budget constraints</li>
+                            <li>Regulatory changes</li>
+                            <li>Economic uncertainty</li>
+                            <li>Climate impacts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>Confidential - [Organization Name]</span>
+                <span class="slide-number">18</span>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to SWOT items
+            const swotItems = document.querySelectorAll('.swot-item');
+            swotItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.02)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

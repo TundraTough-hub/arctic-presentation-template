@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Slides - Arctic Presentation Template</title>
+    <link rel="stylesheet" href="styles/arctic-theme.css">
+    <style>
+        .slide-viewer {
+            background: #1a1a1a;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .viewer-header {
+            background: var(--arctic-deep-blue);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .viewer-controls {
+            background: rgba(30,58,95,0.9);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+        
+        .slide-navigation {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .nav-btn {
+            background: var(--arctic-glacial-blue);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .nav-btn:hover {
+            background: var(--arctic-deep-blue);
+        }
+        
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .slide-counter {
+            font-weight: 600;
+        }
+        
+        .slides-container {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scroll-behavior: smooth;
+        }
+        
+        .slide {
+            flex-shrink: 0;
+            transform: scale(0.6);
+            transform-origin: top left;
+        }
+        
+        .slide-wrapper {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .slide-label {
+            background: var(--arctic-deep-blue);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .zoom-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .zoom-btn {
+            background: var(--arctic-glacial-blue);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        .zoom-level {
+            font-size: 14px;
+            min-width: 60px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-viewer">
+        <div class="viewer-header">
+            <h1>Arctic Presentation Template - All Slides</h1>
+            <p>Browse through all 25 slide templates in the collection</p>
+        </div>
+        
+        <div class="viewer-controls">
+            <div class="slide-navigation">
+                <button class="nav-btn" id="prevBtn" onclick="previousSlide()">← Previous</button>
+                <span class="slide-counter">
+                    Slide <span id="currentSlide">1</span> of <span id="totalSlides">25</span>
+                </span>
+                <button class="nav-btn" id="nextBtn" onclick="nextSlide()">Next →</button>
+            </div>
+            
+            <div class="zoom-controls">
+                <button class="zoom-btn" onclick="changeZoom(-0.1)">−</button>
+                <span class="zoom-level" id="zoomLevel">60%</span>
+                <button class="zoom-btn" onclick="changeZoom(0.1)">+</button>
+            </div>
+            
+            <div>
+                <button class="nav-btn" onclick="window.location.href='index.html'">← Back to Home</button>
+            </div>
+        </div>
+        
+        <div class="slides-container" id="slidesContainer">
+            <!-- Slide 1: Title Slide -->
+            <div class="slide-wrapper">
+                <div class="slide-label">1. Title Slide</div>
+                <div class="slide title-slide">
+                    <div class="slide-header">
+                        <div>
+                            <h1 class="slide-title">[Organization Name]</h1>
+                        </div>
+                        <div class="logo-space">LOGO</div>
+                    </div>
+                    <div class="slide-content">
+                        <h1 class="main-title">Presentation Title</h1>
+                        <p class="main-subtitle">Subtitle or Focus Area</p>
+                        <div class="presenter-info">
+                            <strong>Presenter Name</strong><br>
+                            Title/Position<br>
+                            Date
+                        </div>
+                    </div>
+                    <div class="slide-footer">
+                        <span>Confidential - [Organization Name]</span>
+                        <span class="slide-number">1</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 2: Agenda -->
+            <div class="slide-wrapper">
+                <div class="slide-label">2. Agenda</div>
+                <div class="slide">
+                    <div class="slide-header">
+                        <div>
+                            <h1 class="slide-title">Agenda</h1>
+                            <p class="slide-subtitle">Today's Discussion Points</p>
+                        </div>
+                        <div class="logo-space">LOGO</div>
+                    </div>
+                    <div class="slide-content">
+                        <ul class="bullet-list">
+                            <li>Background and Context</li>
+                            <li>Current Situation Analysis</li>
+                            <li>Key Findings and Data</li>
+                            <li>Recommendations</li>
+                            <li>Implementation Plan</li>
+                            <li>Next Steps and Timeline</li>
+                        </ul>
+                    </div>
+                    <div class="slide-footer">
+                        <span>Confidential - [Organization Name]</span>
+                        <span class="slide-number">2</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 3: Data Visualization -->
+            <div class="slide-wrapper">
+                <div class="slide-label">7. Data Visualization</div>
+                <div class="slide">
+                    <div class="slide-header">
+                        <div>
+                            <h1 class="slide-title">Data Analysis</h1>
+                            <p class="slide-subtitle">Key Metrics and Trends</p>
+                        </div>
+                        <div class="logo-space">LOGO</div>
+                    </div>
+                    <div class="slide-content">
+                        <div class="chart-container">
+                            [Insert Chart/Graph Here]<br>
+                            Bar Chart, Line Graph, Pie Chart, etc.
+                        </div>
+                        <p style="font-size: 28px; text-align: center; color: var(--arctic-charcoal); margin-top: 30px;">
+                            Data shows significant trends in [metric] over [time period]
+                        </p>
+                    </div>
+                    <div class="slide-footer">
+                        <span>Confidential - [Organization Name]</span>
+                        <span class="slide-number">7</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 4: SWOT Analysis -->
+            <div class="slide-wrapper">
+                <div class="slide-label">18. SWOT Analysis</div>
+                <div class="slide">
+                    <div class="slide-header">
+                        <div>
+                            <h1 class="slide-title">SWOT Analysis</h1>
+                            <p class="slide-subtitle">Strategic Assessment</p>
+                        </div>
+                        <div class="logo-space">LOGO</div>
+                    </div>
+                    <div class="slide-content">
+                        <div class="swot-grid">
+                            <div class="swot-item swot-strengths">
+                                <h3 class="swot-title">💪 Strengths</h3>
+                                <ul class="swot-list">
+                                    <li>Strong community partnerships</li>
+                                    <li>Experienced team</li>
+                                    <li>Proven track record</li>
+                                    <li>Adequate funding</li>
+                                </ul>
+                            </div>
+                            <div class="swot-item swot-weaknesses">
+                                <h3 class="swot-title">⚠️ Weaknesses</h3>
+                                <ul class="swot-list">
+                                    <li>Limited technical resources</li>
+                                    <li>Geographic constraints</li>
+                                    <li>Seasonal workforce</li>
+                                    <li>Aging infrastructure</li>
+                                </ul>
+                            </div>
+                            <div class="swot-item swot-opportunities">
+                                <h3 class="swot-title">🌟 Opportunities</h3>
+                                <ul class="swot-list">
+                                    <li>Federal grant programs</li>
+                                    <li>Technology advancement</li>
+                                    <li>New partnerships</li>
+                                    <li>Policy changes</li>
+                                </ul>
+                            </div>
+                            <div class="swot-item swot-threats">
+                                <h3 class="swot-title">⚡ Threats</h3>
+                                <ul class="swot-list">
+                                    <li>Budget constraints</li>
+                                    <li>Regulatory changes</li>
+                                    <li>Economic uncertainty</li>
+                                    <li>Climate impacts</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-footer">
+                        <span>Confidential - [Organization Name]</span>
+                        <span class="slide-number">18</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 5: Thank You -->
+            <div class="slide-wrapper">
+                <div class="slide-label">25. Thank You</div>
+                <div class="slide">
+                    <div class="slide-header">
+                        <div>
+                            <h1 class="slide-title">Thank You</h1>
+                            <p class="slide-subtitle">Appreciation and Closing</p>
+                        </div>
+                        <div class="logo-space">LOGO</div>
+                    </div>
+                    <div class="slide-content" style="text-align: center; justify-content: center; background: linear-gradient(135deg, rgba(30,58,95,0.08) 0%, rgba(45,90,135,0.08) 100%);">
+                        <div style="font-size: 108px; color: var(--arctic-glacial-blue); margin-bottom: 45px;">🙏</div>
+                        <h2 style="font-size: 72px; color: var(--arctic-deep-blue); margin-bottom: 45px;">Thank You</h2>
+                        <div style="font-size: 36px; color: #666; line-height: 1.6; margin-bottom: 60px;">
+                            <p>We appreciate your time, attention, and partnership.</p>
+                            <p>Together, we can achieve great things for our communities.</p>
+                        </div>
+                        <div style="font-size: 30px; color: var(--arctic-deep-blue); font-weight: 600;">
+                            Questions? Let's continue the conversation.
+                        </div>
+                    </div>
+                    <div class="slide-footer">
+                        <span>Confidential - [Organization Name]</span>
+                        <span class="slide-number">25</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let currentSlideIndex = 0;
+        let zoomLevel = 0.6;
+        const slides = document.querySelectorAll('.slide-wrapper');
+        const totalSlides = slides.length;
+        
+        function updateSlideCounter() {
+            document.getElementById('currentSlide').textContent = currentSlideIndex + 1;
+            document.getElementById('totalSlides').textContent = totalSlides;
+            
+            // Update button states
+            document.getElementById('prevBtn').disabled = currentSlideIndex === 0;
+            document.getElementById('nextBtn').disabled = currentSlideIndex === totalSlides - 1;
+        }
+        
+        function scrollToSlide(index) {
+            if (index >= 0 && index < totalSlides) {
+                slides[index].scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center',
+                    inline: 'center'
+                });
+                currentSlideIndex = index;
+                updateSlideCounter();
+            }
+        }
+        
+        function nextSlide() {
+            scrollToSlide(currentSlideIndex + 1);
+        }
+        
+        function previousSlide() {
+            scrollToSlide(currentSlideIndex - 1);
+        }
+        
+        function changeZoom(delta) {
+            zoomLevel = Math.max(0.3, Math.min(1.2, zoomLevel + delta));
+            document.getElementById('zoomLevel').textContent = Math.round(zoomLevel * 100) + '%';
+            
+            slides.forEach(slideWrapper => {
+                const slide = slideWrapper.querySelector('.slide');
+                slide.style.transform = `scale(${zoomLevel})`;
+            });
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            switch(e.key) {
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    previousSlide();
+                    break;
+                case 'ArrowRight':
+                    e.preventDefault();
+                    nextSlide();
+                    break;
+                case '+':
+                case '=':
+                    e.preventDefault();
+                    changeZoom(0.1);
+                    break;
+                case '-':
+                    e.preventDefault();
+                    changeZoom(-0.1);
+                    break;
+                case 'Home':
+                    e.preventDefault();
+                    scrollToSlide(0);
+                    break;
+                case 'End':
+                    e.preventDefault();
+                    scrollToSlide(totalSlides - 1);
+                    break;
+            }
+        });
+        
+        // Initialize
+        updateSlideCounter();
+        
+        // Intersection observer to track current slide
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const index = Array.from(slides).indexOf(entry.target);
+                    if (index !== -1) {
+                        currentSlideIndex = index;
+                        updateSlideCounter();
+                    }
+                }
+            });
+        }, {
+            threshold: 0.5,
+            rootMargin: '-20% 0px -20% 0px'
+        });
+        
+        slides.forEach(slide => observer.observe(slide));
+    </script>
+</body>
+</html>

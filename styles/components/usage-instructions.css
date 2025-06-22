@@ -1,0 +1,54 @@
+/* Usage Instructions Component Styles */
+
+.usage-instructions {
+    background: var(--neutral-white);
+    border-radius: 20px;
+    padding: 3rem;
+    margin: 4rem 0;
+    box-shadow: 0 8px 32px var(--shadow-subtle);
+}
+
+.usage-instructions h3 {
+    font-size: 2rem;
+    color: var(--primary-blue);
+    margin-bottom: 2.5rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.instruction-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.instruction-item {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: var(--soft-gray);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.instruction-item:hover {
+    transform: translateY(-4px);
+    background: linear-gradient(135deg, var(--soft-gray), rgba(170, 200, 224, 0.1));
+}
+
+.instruction-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.instruction-item h4 {
+    font-size: 1.2rem;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.instruction-item p {
+    color: var(--text-secondary);
+    line-height: 1.5;
+}

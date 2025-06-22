@@ -4,6 +4,8 @@
   "description": "Professional background exporter for Arctic presentation templates",
   "main": "export-all-backgrounds.js",
   "scripts": {
+    "start": "node interactive-export.js",
+    "interactive": "node interactive-export.js",
     "export": "node export-all-backgrounds.js",
     "export-classic": "node export-all-backgrounds.js --classic-only",
     "export-modern": "node export-all-backgrounds.js --modern-only",
@@ -14,6 +16,9 @@
     "setup": "npm install && node setup-dependencies.js",
     "test": "node export-all-backgrounds.js --help",
     "clean": "rm -rf mp4-backgrounds-* background-previews temp-*"
+  },
+  "bin": {
+    "arctic-export": "./interactive-export.js"
   },
   "keywords": [
     "presentation",
@@ -68,6 +73,10 @@
     },
     "outputFormats": ["mp4", "png"],
     "maxDuration": 30,
-    "defaultDuration": 12
+    "defaultDuration": 12,
+    "backgroundStyles": {
+      "classic": "Dynamic flowing animations with organic shapes",
+      "modern": "Clean minimal animations with geometric elements"
+    }
   }
 }

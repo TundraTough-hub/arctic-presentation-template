@@ -3,258 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arctic Presentation Template</title>
+    <title>Arctic Presentation Template - Master Index</title>
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="presentation-container">
-        <!-- Navigation -->
-        <nav class="slide-nav">
-            <div class="nav-dots">
-                <span class="nav-dot active" data-slide="0"></span>
-                <span class="nav-dot" data-slide="1"></span>
-                <span class="nav-dot" data-slide="2"></span>
-                <span class="nav-dot" data-slide="3"></span>
-                <span class="nav-dot" data-slide="4"></span>
-                <span class="nav-dot" data-slide="5"></span>
-                <span class="nav-dot" data-slide="6"></span>
-                <span class="nav-dot" data-slide="7"></span>
+    <div class="master-container" 
+         data-tooltip="PowerPoint: This master index shows all slide templates. Each thumbnail links to individual slide files that you can use as design references for recreating in PowerPoint or Google Slides.">
+        
+        <!-- Header Section -->
+        <header class="master-header" 
+                data-tooltip="PowerPoint: Use 'Title Slide' layout for header. Font: Arial Bold, 48pt. Colors from brand palette.">
+            <div class="header-content">
+                <h1 class="main-title">Arctic Presentation Templates</h1>
+                <p class="subtitle">Modern, Non-Blocky Design System for Arctic Outlook & Tundra Tough LLC</p>
+                <div class="brand-logos">
+                    <span class="logo-placeholder">Arctic Outlook</span>
+                    <span class="divider">•</span>
+                    <span class="logo-placeholder">Tundra Tough LLC</span>
+                </div>
             </div>
-            <div class="nav-controls">
-                <button class="nav-btn" id="prevBtn">←</button>
-                <button class="nav-btn" id="nextBtn">→</button>
-            </div>
-        </nav>
+        </header>
 
-        <!-- Slides Container -->
-        <div class="slides-wrapper">
-            <!-- Title Slide -->
-            <div class="slide active" data-slide="0">
-                <div class="slide-content" data-tooltip="PowerPoint: Use 'Title Slide' layout. Add curved shapes from 'Insert > Shapes > Basic Shapes' for background elements. Apply gradient fill with Arctic Cyan to Primary Blue.">
-                    <div class="slide-background">
-                        <div class="fluid-shape shape-1"></div>
-                        <div class="fluid-shape shape-2"></div>
-                    </div>
-                    <div class="content-wrapper">
-                        <h1 class="slide-title">Arctic Outlook & Tundra Tough</h1>
-                        <h2 class="slide-subtitle">Professional Presentation Template</h2>
-                        <div class="brand-logos">
-                            <div class="logo-placeholder">Arctic Outlook Logo</div>
-                            <div class="logo-placeholder">Tundra Tough Logo</div>
+        <!-- Quick Navigation -->
+        <section class="quick-nav" 
+                 data-tooltip="PowerPoint: Quick access links to all slide templates for faster navigation.">
+            <h3>Quick Access</h3>
+            <div class="nav-links">
+                <a href="slides/slide-01-title.html" target="_blank" class="nav-link">Title Slide</a>
+                <a href="slides/slide-02-section-divider.html" target="_blank" class="nav-link">Section Divider</a>
+                <a href="slides/slide-03-data-insights.html" target="_blank" class="nav-link">Data Insights</a>
+                <a href="slides/slide-04-image-focus.html" target="_blank" class="nav-link">Image Focus</a>
+                <a href="slides/slide-05-process-flow.html" target="_blank" class="nav-link">Process Flow</a>
+                <a href="slides/slide-06-chart-visualization.html" target="_blank" class="nav-link">Data Visualization</a>
+                <a href="slides/slide-07-team-contact.html" target="_blank" class="nav-link">Team & Contact</a>
+                <a href="slides/slide-08-closing.html" target="_blank" class="nav-link">Thank You / Closing</a>
+            </div>
+        </section>
+
+        <!-- Color Palette Reference -->
+        <section class="color-palette" 
+                 data-tooltip="PowerPoint: Reference these exact hex colors when recreating designs. Use Format > Shape Fill > More Fill Colors > Custom to input hex values.">
+            <h3>Brand Color Palette</h3>
+            <div class="color-swatches">
+                <div class="color-swatch" data-color="#2A73B5" data-tooltip="Primary Blue (#2A73B5): Main titles, primary buttons, key iconography">
+                    <div class="swatch" style="background: #2A73B5;"></div>
+                    <span class="color-name">Primary Blue</span>
+                    <span class="color-hex">#2A73B5</span>
+                </div>
+                <div class="color-swatch" data-color="#00AEEF" data-tooltip="Arctic Cyan (#00AEEF): Highlight accents, secondary buttons, data call-outs">
+                    <div class="swatch" style="background: #00AEEF;"></div>
+                    <span class="color-name">Arctic Cyan</span>
+                    <span class="color-hex">#00AEEF</span>
+                </div>
+                <div class="color-swatch" data-color="#152F52" data-tooltip="Dark Navy (#152F52): Body text, footer/header backgrounds, chart axes">
+                    <div class="swatch" style="background: #152F52;"></div>
+                    <span class="color-name">Dark Navy</span>
+                    <span class="color-hex">#152F52</span>
+                </div>
+                <div class="color-swatch" data-color="#AAC8E0" data-tooltip="Accent Light (#AAC8E0): Background fills, hover states, subheadings">
+                    <div class="swatch" style="background: #AAC8E0;"></div>
+                    <span class="color-name">Accent Light</span>
+                    <span class="color-hex">#AAC8E0</span>
+                </div>
+                <div class="color-swatch" data-color="#FFFFFF" data-tooltip="Neutral White (#FFFFFF): Slide backgrounds, generous whitespace, text on dark backgrounds">
+                    <div class="swatch" style="background: #FFFFFF; border: 1px solid #ddd;"></div>
+                    <span class="color-name">Neutral White</span>
+                    <span class="color-hex">#FFFFFF</span>
+                </div>
+                <div class="color-swatch" data-color="#F5F7FA" data-tooltip="Soft Gray (#F5F7FA): Section dividers, secondary backgrounds, subtle borders">
+                    <div class="swatch" style="background: #F5F7FA;"></div>
+                    <span class="color-name">Soft Gray</span>
+                    <span class="color-hex">#F5F7FA</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide Templates Grid -->
+        <section class="templates-grid" 
+                 data-tooltip="PowerPoint: Each thumbnail represents a different slide layout. Click to view detailed implementation instructions.">
+            <h3>Available Slide Templates</h3>
+            
+            <div class="template-cards">
+                <!-- Title Slide Template -->
+                <div class="template-card" 
+                     data-tooltip="PowerPoint: Title slide with flowing background elements and brand positioning. Click to view detailed recreation instructions.">
+                    <div class="card-preview">
+                        <div class="preview-placeholder title-preview">
+                            <h4>Title Slide</h4>
+                            <p>Arctic Infrastructure Solutions</p>
+                            <div class="preview-elements">
+                                <div class="element flow-bg"></div>
+                                <div class="element circle"></div>
+                            </div>
                         </div>
+                    </div>
+                    <div class="card-info">
+                        <h4 class="card-title">Title Slide</h4>
+                        <p class="card-description">Opening slide with flowing elements and brand presentation</p>
+                        <a href="slides/slide-01-title.html" class="view-link" target="_blank">View Template</a>
+                    </div>
+                </div>
+
+                <!-- Section Divider Template -->
+                <div class="template-card">
+                    <div class="card-preview">
+                        <div class="preview-placeholder section-preview">
+                            <h4>Section Divider</h4>
+                            <div class="wave-element"></div>
+                            <div class="progress-indicator"></div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h4 class="card-title">Section Divider</h4>
+                        <p class="card-description">Dynamic transition slide with wave elements</p>
+                        <a href="slides/slide-02-section-divider.html" class="view-link" target="_blank">View Template</a>
+                    </div>
+                </div>
+
+                <!-- Data Insights Template -->
+                <div class="template-card">
+                    <div class="card-preview">
+                        <div class="preview-placeholder data-preview">
+                            <h4>Data Insights</h4>
+                            <div class="data-cards">
+                                <div class="mini-card">85%</div>
+                                <div class="mini-card">-12°C</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h4 class="card-title">Data Insights</h4>
+                        <p class="card-description">Statistics and metrics with flowing card layouts</p>
+                        <a href="slides/slide-03-data-insights.html" class="view-link" target="_blank">View Template</a>
+                    </div>
+                </div>
+
+                <!-- Image Focus Template -->
+                <div class="template-card">
+                    <div class="card-preview">
+                        <div class="preview-placeholder image-preview">
+                            <div class="image-mask"></div>
+                            <div class="content-area">
+                                <h4>Image Focus</h4>
+                                <p>Content beside image</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h4 class="card-title">Image Focus</h4>
+                        <p class="card-description">Large image with organic masking and content flow</p>
+                        <a href="slides/slide-04-image-focus.html" class="view-link" target="_blank">View Template</a>
+                    </div>
+                </div>
+
+                <!-- Process Flow Template -->
+                <div class="template-card">
+                    <div class="card-preview">
+                        <div class="preview-placeholder process-preview">
+                            <h4>Process Flow</h4>
+                            <div class="process-line">
+                                <div class="step">1</div>
+                                <div class="step">2</div>
+                                <div class="step">3</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h4 class="card-title">Process Flow</h4>
+                        <p class="card-description">Timeline with curved connections and step indicators</p>
+                        <a href="slides/slide-05-process-flow.html" class="view-link" target="_blank">View Template</a>
+                    </div>
+                </div>
+
+                <!-- Chart Visualization Template -->
+                <div class="template-card">
+                    <div class="card-preview">
+                        <div class="preview-placeholder chart-preview">
+                            <h4>Data Visualization</h4>
+                            <div class="mini-chart">
+                                <div class="bar" style="height: 40%"></div>
+                                <div class="bar" style="height: 70%"></div>
+                                <div class="bar" style="height: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h4 class="card-title">Data Visualization</h4>
+                        <p class="card-description">Charts and graphs with insights panel</p>
+                        <a href="slides/slide-06-chart-visualization.html" class="view-link" target="_blank">View Template</a>
+                    </div>
+                </div>
+
+                <!-- Team Contact Template -->
+                <div class="template-card">
+                    <div class="card-preview">
+                        <div class="preview-placeholder team-preview">
+                            <h4>Team & Contact</h4>
+                            <div class="team-grid">
+                                <div class="member-card"></div>
+                                <div class="member-card"></div>
+                                <div class="member-card"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h4 class="card-title">Team & Contact</h4>
+                        <p class="card-description">Team member profiles with contact information</p>
+                        <a href="slides/slide-07-team-contact.html" class="view-link" target="_blank">View Template</a>
+                    </div>
+                </div>
+
+                <!-- Closing Template -->
+                <div class="template-card">
+                    <div class="card-preview">
+                        <div class="preview-placeholder closing-preview">
+                            <h4>Thank You</h4>
+                            <p>Questions & Discussion</p>
+                            <div class="contact-blocks">
+                                <div class="contact-block"></div>
+                                <div class="contact-block"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h4 class="card-title">Thank You / Closing</h4>
+                        <p class="card-description">Elegant closing slide with contact details</p>
+                        <a href="slides/slide-08-closing.html" class="view-link" target="_blank">View Template</a>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Section Divider Slide -->
-            <div class="slide" data-slide="1">
-                <div class="slide-content" data-tooltip="PowerPoint: Use 'Section Header' layout. Create flowing divider using 'Insert > Shapes > Lines > Curve'. Apply Dark Navy color with subtle shadow effect.">
-                    <div class="slide-background">
-                        <div class="section-divider"></div>
-                        <div class="floating-elements">
-                            <div class="element circle"></div>
-                            <div class="element oval"></div>
-                        </div>
-                    </div>
-                    <div class="content-wrapper centered">
-                        <h1 class="section-title">Arctic Infrastructure Solutions</h1>
-                        <p class="section-description">Innovative approaches for sustainable development in extreme environments</p>
-                    </div>
+        <!-- Usage Instructions -->
+        <section class="usage-instructions" 
+                 data-tooltip="PowerPoint: Follow these guidelines when recreating the designs in PowerPoint or Google Slides.">
+            <h3>How to Use These Templates</h3>
+            <div class="instruction-grid">
+                <div class="instruction-item">
+                    <div class="instruction-icon">🎨</div>
+                    <h4>View Individual Slides</h4>
+                    <p>Click on any template card to view the full slide with detailed tooltip instructions</p>
+                </div>
+                <div class="instruction-item">
+                    <div class="instruction-icon">🖱️</div>
+                    <h4>Hover for Details</h4>
+                    <p>Hover over any element in the slide templates to see specific PowerPoint recreation steps</p>
+                </div>
+                <div class="instruction-item">
+                    <div class="instruction-icon">📐</div>
+                    <h4>Standard Dimensions</h4>
+                    <p>All templates are designed for 16:9 aspect ratio (standard presentation size)</p>
+                </div>
+                <div class="instruction-item">
+                    <div class="instruction-icon">🎯</div>
+                    <h4>Brand Consistency</h4>
+                    <p>Use the color palette reference above to maintain brand consistency across all slides</p>
                 </div>
             </div>
+        </section>
 
-            <!-- Content Slide with Data -->
-            <div class="slide" data-slide="2">
-                <div class="slide-content" data-tooltip="PowerPoint: Use 'Two Content' layout. Create rounded rectangles for content cards using 'Insert > Shapes > Rectangles > Rounded Rectangle'. Apply Accent Light fill with subtle drop shadow.">
-                    <div class="slide-background">
-                        <div class="subtle-pattern"></div>
-                    </div>
-                    <div class="content-wrapper">
-                        <h2 class="slide-heading">Data-Driven Insights</h2>
-                        <div class="content-grid">
-                            <div class="content-card">
-                                <div class="card-header">
-                                    <div class="stat-number">85%</div>
-                                    <div class="stat-icon"></div>
-                                </div>
-                                <h3>Arctic Ice Coverage</h3>
-                                <p>Comprehensive monitoring data showing seasonal variations and long-term trends affecting infrastructure planning and community development.</p>
-                            </div>
-                            <div class="content-card">
-                                <div class="card-header">
-                                    <div class="stat-number">-12°C</div>
-                                    <div class="stat-icon"></div>
-                                </div>
-                                <h3>Temperature Analysis</h3>
-                                <p>Regional temperature patterns and extreme weather events that influence design requirements for Arctic infrastructure projects.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Image Focus Slide -->
-            <div class="slide" data-slide="3">
-                <div class="slide-content" data-tooltip="PowerPoint: Use 'Picture with Caption' layout. Create organic mask shapes using 'Insert > Shapes > Basic Shapes > Freeform'. Apply image fill and position over curved background elements.">
-                    <div class="slide-background">
-                        <div class="image-mask">
-                            <div class="image-placeholder">Arctic Landscape Image</div>
-                        </div>
-                        <div class="flowing-accent"></div>
-                    </div>
-                    <div class="content-wrapper side-content">
-                        <h2 class="slide-heading">Resilient Infrastructure</h2>
-                        <p class="slide-text">Our comprehensive approach ensures sustainable development while respecting indigenous communities and environmental preservation. We focus on creating infrastructure that can withstand the unique challenges of Arctic environments.</p>
-                        <ul class="feature-list">
-                            <li>Sustainable design principles</li>
-                            <li>Community engagement and consultation</li>
-                            <li>Environmental protection measures</li>
-                            <li>Climate-adaptive technologies</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Process Flow Slide -->
-            <div class="slide" data-slide="4">
-                <div class="slide-content" data-tooltip="PowerPoint: Use 'Blank' layout. Create flowing process line using 'Insert > Shapes > Lines > Curve'. Add circular process nodes using 'Insert > Shapes > Basic Shapes > Oval'. Connect with curved connectors.">
-                    <div class="slide-background">
-                        <div class="process-flow">
-                            <div class="flow-line"></div>
-                        </div>
-                    </div>
-                    <div class="content-wrapper">
-                        <h2 class="slide-heading">Implementation Process</h2>
-                        <div class="process-steps">
-                            <div class="process-step">
-                                <div class="step-number">01</div>
-                                <h3>Assessment</h3>
-                                <p>Comprehensive environmental and community impact analysis including stakeholder consultation and feasibility studies</p>
-                            </div>
-                            <div class="process-step">
-                                <div class="step-number">02</div>
-                                <h3>Planning</h3>
-                                <p>Collaborative design process with stakeholders, experts, and local communities to ensure culturally appropriate solutions</p>
-                            </div>
-                            <div class="process-step">
-                                <div class="step-number">03</div>
-                                <h3>Implementation</h3>
-                                <p>Phased rollout with continuous monitoring, quality control, and adaptive management strategies</p>
-                            </div>
-                            <div class="process-step">
-                                <div class="step-number">04</div>
-                                <h3>Evaluation</h3>
-                                <p>Long-term impact assessment, performance optimization, and sustainable maintenance planning</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Chart/Data Visualization Slide -->
-            <div class="slide" data-slide="5">
-                <div class="slide-content" data-tooltip="PowerPoint: Use 'Content with Caption' layout. Insert chart using 'Insert > Chart > Column'. Customize colors to match brand palette. Add curved text boxes for annotations using 'Insert > Text Box' with curved text effects.">
-                    <div class="slide-background">
-                        <div class="chart-background">
-                            <div class="grid-pattern"></div>
-                        </div>
-                    </div>
-                    <div class="content-wrapper">
-                        <h2 class="slide-heading">Performance Metrics</h2>
-                        <div class="chart-container">
-                            <div class="chart-placeholder">
-                                <div class="chart-bars">
-                                    <div class="bar" style="height: 80%" data-value="80%"></div>
-                                    <div class="bar" style="height: 65%" data-value="65%"></div>
-                                    <div class="bar" style="height: 90%" data-value="90%"></div>
-                                    <div class="bar" style="height: 75%" data-value="75%"></div>
-                                </div>
-                                <div class="chart-labels">
-                                    <span>Q1 2024</span>
-                                    <span>Q2 2024</span>
-                                    <span>Q3 2024</span>
-                                    <span>Q4 2024</span>
-                                </div>
-                            </div>
-                            <div class="chart-insights">
-                                <div class="insight-card">
-                                    <h4>Key Findings</h4>
-                                    <p>Consistent growth across all quarters with Q3 showing exceptional performance in project completion rates and stakeholder satisfaction metrics.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Team/Contact Slide -->
-            <div class="slide" data-slide="6">
-                <div class="slide-content" data-tooltip="PowerPoint: Use 'Comparison' layout. Create team member cards using rounded rectangles. Add profile image placeholders using 'Insert > Shapes > Basic Shapes > Oval'. Apply consistent spacing and alignment.">
-                    <div class="slide-background">
-                        <div class="team-pattern">
-                            <div class="connection-lines"></div>
-                        </div>
-                    </div>
-                    <div class="content-wrapper">
-                        <h2 class="slide-heading">Our Expert Team</h2>
-                        <div class="team-grid">
-                            <div class="team-member">
-                                <div class="member-photo"></div>
-                                <h3>Sarah Johnson</h3>
-                                <p class="member-role">Project Director</p>
-                                <p class="member-contact">s.johnson@arcticoutlook.com</p>
-                            </div>
-                            <div class="team-member">
-                                <div class="member-photo"></div>
-                                <h3>Marcus Chen</h3>
-                                <p class="member-role">Technical Lead</p>
-                                <p class="member-contact">m.chen@tundratough.com</p>
-                            </div>
-                            <div class="team-member">
-                                <div class="member-photo"></div>
-                                <h3>Elena Kovalev</h3>
-                                <p class="member-role">Community Liaison</p>
-                                <p class="member-contact">e.kovalev@arcticoutlook.com</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Thank You/Contact Slide -->
-            <div class="slide" data-slide="7">
-                <div class="slide-content" data-tooltip="PowerPoint: Use 'Title and Content' layout. Create elegant closing design using multiple overlapping shapes with transparency. Add contact information in clean, readable format with consistent spacing.">
-                    <div class="slide-background">
-                        <div class="closing-elements">
-                            <div class="element-1"></div>
-                            <div class="element-2"></div>
-                            <div class="element-3"></div>
-                        </div>
-                    </div>
-                    <div class="content-wrapper centered">
-                        <h1 class="closing-title">Thank You</h1>
-                        <p class="closing-subtitle">Questions & Discussion</p>
-                        <div class="contact-info">
-                            <div class="contact-block">
-                                <h3>Arctic Outlook</h3>
-                                <p>www.arcticoutlook.com</p>
-                                <p>info@arcticoutlook.com</p>
-                            </div>
-                            <div class="contact-block">
-                                <h3>Tundra Tough LLC</h3>
-                                <p>www.tundratough.com</p>
-                                <p>contact@tundratough.com</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- Footer -->
+        <footer class="master-footer" 
+                data-tooltip="PowerPoint: Footer information can be added to slide master for consistent branding.">
+            <p>Arctic Presentation Template System • Modern Design for Professional Impact</p>
+            <p>Created for Arctic Outlook & Tundra Tough LLC</p>
+        </footer>
     </div>
 
-    <script src="scripts/main.js"></script>
+    <script src="scripts/tooltip-handler.js"></script>
+    <script src="scripts/master-navigation.js"></script>
 </body>
 </html>

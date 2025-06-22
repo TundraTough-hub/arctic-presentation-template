@@ -1,6 +1,6 @@
 {
   "name": "arctic-presentation-background-exporter",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Professional background exporter with animation speed control for Arctic presentation templates",
   "main": "export-animation-accurate.js",
   "scripts": {
@@ -18,6 +18,13 @@
     "export-fast": "node export-animation-accurate.js --speed 2.0",
     "export-relaxed": "node export-animation-accurate.js --speed 0.3",
     "export-energetic": "node export-animation-accurate.js --speed 3.0",
+    "export-half-speed": "node export-animation-accurate.js --speed 0.5",
+    "export-normal-speed": "node export-animation-accurate.js --speed 1.0",
+    "export-1.5x-speed": "node export-animation-accurate.js --speed 1.5",
+    "export-double-speed": "node export-animation-accurate.js --speed 2.0",
+    "export-triple-speed": "node export-animation-accurate.js --speed 3.0",
+    "export-ambient": "node export-animation-accurate.js --speed 0.3 --duration 15",
+    "export-dynamic": "node export-animation-accurate.js --speed 2.5 --duration 10",
     "setup": "npm install --legacy-peer-deps",
     "test": "node export-animation-accurate.js --help",
     "clean": "rm -rf mp4-backgrounds-* temp-*"

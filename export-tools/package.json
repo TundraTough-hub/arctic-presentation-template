@@ -7,9 +7,6 @@
     "start": "node interactive-export.js",
     "interactive": "node interactive-export.js",
     "export": "node export-animation-accurate.js",
-    "export-accurate": "node export-animation-accurate.js",
-    "export-reliable": "node export-reliable-backgrounds.js",
-    "export-advanced": "node export-all-backgrounds.js",
     "export-classic": "node export-animation-accurate.js --classic-only",
     "export-modern": "node export-animation-accurate.js --modern-only",
     "export-hd": "node export-animation-accurate.js --resolution hd",
@@ -17,10 +14,9 @@
     "export-60fps": "node export-animation-accurate.js --fps 60",
     "export-quick": "node export-animation-accurate.js --duration 8 --resolution hd",
     "export-premium": "node export-animation-accurate.js --resolution uhd --quality ultra --duration 15 --fps 60",
-    "setup": "npm install --legacy-peer-deps && node setup-dependencies.js",
-    "install-deps": "npm install --legacy-peer-deps",
+    "setup": "npm install --legacy-peer-deps",
     "test": "node export-animation-accurate.js --help",
-    "clean": "rm -rf mp4-backgrounds-* background-previews temp-*"
+    "clean": "rm -rf mp4-backgrounds-* temp-*"
   },
   "bin": {
     "arctic-export": "./interactive-export.js"
@@ -46,15 +42,6 @@
     "fs-extra": "^11.2.0",
     "ffmpeg-static": "^5.2.0",
     "chalk": "^4.1.2"
-  },
-  "optionalDependencies": {
-    "puppeteer-screen-recorder": "^3.0.6",
-    "archiver": "^7.0.1",
-    "sharp": "^0.33.4",
-    "cli-progress": "^3.12.0"
-  },
-  "devDependencies": {
-    "timecut": "^0.3.3"
   },
   "engines": {
     "node": ">=16.0.0"
@@ -88,16 +75,11 @@
       "classic": "Dynamic flowing animations with organic shapes",
       "modern": "Clean minimal animations with geometric elements"
     },
-    "exportMethods": {
-      "accurate": "Animation-synchronized capture (preserves CSS timing)",
-      "reliable": "Screenshot + FFmpeg (maximum compatibility)",
-      "advanced": "Puppeteer Screen Recorder (requires compatible versions)"
-    },
     "animationFeatures": {
       "timingAccuracy": "Frame-perfect CSS animation capture",
       "synchronization": "All animations reset and synchronized",
       "frameRates": "15, 24, 30, 60 fps support",
-      "qualityOptimization": "GPU acceleration and backface visibility"
+      "qualityOptimization": "GPU acceleration and optimized rendering"
     }
   }
 }

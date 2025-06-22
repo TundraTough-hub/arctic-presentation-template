@@ -8,8 +8,8 @@ Converts your beautiful Arctic slide animations into **MP4 video backgrounds** t
 
 - **6 Different Background Styles**: Classic and modern variants
 - **Multiple Resolutions**: HD, Full HD, 4K, and presentation-optimized
-- **High Quality Videos**: Smooth 30fps animations with professional encoding
-- **Still Frame Exports**: PNG images for static use
+- **Animation-Accurate Timing**: Preserves original CSS animation speed
+- **High Quality Videos**: Smooth 30fps or 60fps animations
 - **PowerPoint Ready**: Optimized for seamless integration
 
 ## 📁 Exported Backgrounds
@@ -29,7 +29,7 @@ Converts your beautiful Arctic slide animations into **MP4 video backgrounds** t
 ### 1. Setup (First Time Only)
 ```bash
 cd export-tools
-npm run setup
+npm install --legacy-peer-deps
 ```
 
 ### 2. Export All Backgrounds
@@ -38,7 +38,7 @@ npm run export
 ```
 
 ### 3. Use Exported Videos
-- Check `mp4-backgrounds-complete/` folder
+- Check `mp4-backgrounds-accurate/` folder
 - Import MP4 files into your presentation software
 - See usage guide for detailed instructions
 
@@ -58,29 +58,29 @@ npm run export-modern
 # High-definition (720p)
 npm run export-hd
 
-# Ultra high quality 4K
-npm run export-4k
+# Ultra high quality 4K + 60fps
+npm run export-premium
+
+# High frame rate (60fps)
+npm run export-60fps
 
 # Quick 8-second export
 npm run export-quick
-
-# Premium quality with longer duration
-npm run export-premium
 ```
 
 ### Advanced Options
 ```bash
 # Custom resolution and quality
-node export-all-backgrounds.js --resolution uhd --quality ultra
+node export-animation-accurate.js --resolution uhd --quality ultra
 
 # Specific duration
-node export-all-backgrounds.js --duration 15
+node export-animation-accurate.js --duration 15
 
-# Skip still frame generation
-node export-all-backgrounds.js --no-stills
+# High frame rate
+node export-animation-accurate.js --fps 60
 
 # See all options
-node export-all-backgrounds.js --help
+node export-animation-accurate.js --help
 ```
 
 ## 🎯 Resolution Options
@@ -120,16 +120,17 @@ node export-all-backgrounds.js --help
 
 ### Video Output
 - **Format**: MP4 (H.264)
-- **Frame Rate**: 30 fps
+- **Frame Rate**: 30 fps or 60 fps
 - **Duration**: 12 seconds (seamless loop)
 - **Audio**: None (silent)
 - **Compression**: Optimized for quality and compatibility
+- **Animation Timing**: ✅ **Preserves original CSS animation speed**
 
 ### Quality Levels
-- **Low**: Fast export, 1MB bitrate
-- **Medium**: Balanced, 2MB bitrate  
-- **High**: Recommended, 4MB bitrate
-- **Ultra**: Maximum quality, 8MB bitrate
+- **Low**: Fast export, smaller files
+- **Medium**: Balanced quality and size  
+- **High**: Recommended, excellent quality
+- **Ultra**: Maximum quality, larger files
 
 ## 📁 File Structure
 
@@ -137,7 +138,7 @@ After export, you'll find:
 
 ```
 export-tools/
-├── mp4-backgrounds-complete/
+├── mp4-backgrounds-accurate/
 │   ├── classic/                    # Classic style backgrounds
 │   │   ├── arctic-title-classic-background.mp4
 │   │   ├── arctic-section-classic-background.mp4
@@ -148,7 +149,7 @@ export-tools/
 │   │   └── arctic-section-modern-background.mp4
 │   ├── stills/                     # High-res PNG frames
 │   │   └── [slide-name]-still.png
-│   └── COMPLETE_BACKGROUNDS_GUIDE.md
+│   └── ANIMATION_ACCURATE_GUIDE.md
 ```
 
 ## 🎨 Background Descriptions
@@ -188,17 +189,11 @@ node --version  # Should be 16+
 
 # Clean install
 rm -rf node_modules
-npm install
-
-# Run setup again
-npm run setup
+npm install --legacy-peer-deps
 ```
 
 ### Export Issues
 ```bash
-# Increase memory for large exports
-node --max-old-space-size=8192 export-all-backgrounds.js
-
 # Check disk space
 df -h
 
@@ -210,7 +205,7 @@ npm run export-quick
 
 **"Module not found" errors**
 ```bash
-npm install
+npm install --legacy-peer-deps
 ```
 
 **"FFmpeg not found"**
@@ -225,7 +220,21 @@ npm install
 **Export takes too long**
 - Use `--duration 8` for shorter videos
 - Use `--resolution hd` for faster processing
-- Use `--no-stills` to skip PNG generation
+- Use `--fps 30` instead of 60fps
+
+## 🎞️ Animation Accuracy Features
+
+### Why This Matters
+- **Original timing preserved**: Animations play at same speed as in browser
+- **Frame-perfect capture**: Each frame captured at exact intervals
+- **Synchronized start**: All animations reset and start together
+- **No speed distortion**: Common problem with other export methods
+
+### Technical Details
+- **Frame-synchronized capture**: 30fps = 33.33ms intervals
+- **Animation reset**: All CSS animations paused → reset → resumed in sync
+- **GPU acceleration**: Enabled for smooth rendering
+- **Quality optimization**: High-quality JPEG intermediate frames
 
 ## 📞 Support & Customization
 
@@ -241,8 +250,8 @@ npm install
 
 ### Custom Requirements
 - **Different durations**: Use `--duration <seconds>`
-- **Custom resolutions**: Modify `CONFIG.resolutions` in the script
-- **Additional formats**: Contact for WebM or GIF export options
+- **Custom resolutions**: Modify script or request feature
+- **Additional formats**: WebM or GIF export available on request
 - **Batch processing**: Script supports multiple slides automatically
 
 ## 🎯 Best Practices
@@ -267,6 +276,6 @@ npm install
 
 ---
 
-*Arctic Presentation Background Exporter v2.0*  
-*Professional video backgrounds for presentation software*  
+*Arctic Presentation Background Exporter*  
+*Professional video backgrounds with animation-accurate timing*  
 *Compatible with PowerPoint, Google Slides, Keynote, and more*

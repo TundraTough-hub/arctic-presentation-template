@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * Animation-Accurate Arctic Background Exporter
- * Captures backgrounds with proper animation timing
+ * Animation-Accurate Arctic Background Exporter (Fixed)
+ * Captures backgrounds with proper animation timing - PNG quality fix
  */
 
 const puppeteer = require('puppeteer');
@@ -37,8 +37,8 @@ const CONFIG = {
   // Animation timing settings
   quality: 'high',
   frameInterval: 1000 / 30, // 33.33ms for 30fps - matches CSS animation timing
-  imageFormat: 'png', // Use PNG for better quality
-  imageQuality: 100,
+  imageFormat: 'jpeg', // Use JPEG to avoid quality parameter issues
+  imageQuality: 95, // High quality JPEG
   
   // Animation synchronization
   animationResetDelay: 2000, // Wait for animations to start properly
@@ -270,7 +270,11 @@ class AnimationAccurateExporter {
       await page.close();
       
       // Clean up screenshots for this slide
-      fs.removeSync(screenshotFolder);
+      try {
+        fs.removeSync(screenshotFolder);
+      } catch (e) {
+        // Ignore cleanup errors
+      }
     }
   }
 
@@ -282,9 +286,13 @@ class AnimationAccurateExporter {
     await page.waitForTimeout(3000);
     
     // Wait for web fonts specifically
-    await page.evaluate(() => {
-      return document.fonts.ready;
-    });
+    try {
+      await page.evaluate(() => {
+        return document.fonts.ready;
+      });
+    } catch (e) {
+      // Ignore if fonts API not available
+    }
     
     // Additional wait for any lazy-loaded resources
     await page.waitForTimeout(1000);
@@ -411,14 +419,21 @@ class AnimationAccurateExporter {
       const frameTime = Date.now();
       const filename = path.join(screenshotFolder, `frame_${i.toString().padStart(6, '0')}.${CONFIG.imageFormat}`);
       
-      // Capture screenshot
-      await page.screenshot({
+      // Create screenshot options based on format
+      const screenshotOptions = {
         path: filename,
         type: CONFIG.imageFormat,
-        quality: CONFIG.imageQuality,
         fullPage: false,
         optimizeForSpeed: false // Prioritize quality over speed
-      });
+      };
+
+      // Only add quality for JPEG format
+      if (CONFIG.imageFormat === 'jpeg') {
+        screenshotOptions.quality = CONFIG.imageQuality;
+      }
+
+      // Capture screenshot
+      await page.screenshot(screenshotOptions);
       
       // Calculate how long to wait for next frame
       const elapsedTime = Date.now() - frameTime;
@@ -475,9 +490,9 @@ class AnimationAccurateExporter {
   createUsageGuide() {
     const guide = `# Animation-Accurate Arctic Presentation Backgrounds
 
-## 📊 Export Information
+## 📊 Export Summary
 
-- **Export Method**: Animation-Synchronized Capture (Accurate Timing)
+- **Export Method**: Animation-Synchronized Capture (Timing Preserved)
 - **Total Backgrounds**: ${this.slides.length}
 - **Resolution**: ${CONFIG.resolutions[CONFIG.defaultResolution].name} (${CONFIG.resolutions[CONFIG.defaultResolution].width}×${CONFIG.resolutions[CONFIG.defaultResolution].height})
 - **Duration**: ${CONFIG.duration / 1000} seconds each
@@ -485,23 +500,9 @@ class AnimationAccurateExporter {
 - **Frame Rate**: ${CONFIG.fps} fps (synchronized with CSS animations)
 - **Animation Accuracy**: ✅ Original timing preserved
 
-## 🎞️ Animation Quality Features
-
-### Timing Accuracy
-- **Frame-perfect capture**: Each frame captured at exact 1/${CONFIG.fps}s intervals
-- **Animation synchronization**: Animations reset and started in perfect sync
-- **No speed distortion**: Original CSS animation timing preserved
-- **Smooth playback**: Optimized for seamless looping
-
-### Technical Optimizations
-- **GPU acceleration**: Enabled for smooth animation rendering
-- **High-quality frames**: PNG capture for maximum fidelity
-- **Consistent timing**: CPU throttling disabled for accurate capture
-- **Animation optimization**: Backface visibility and transform optimizations
-
 ## 📁 Exported Files
 
-### Classic Arctic Backgrounds (Flowing & Dynamic)
+### Classic Arctic Backgrounds (Dynamic & Flowing)
 ${this.slides.filter(s => s.category === 'classic').map(s => 
   `- **${s.name}-background.mp4**: ${s.description}`
 ).join('\n')}
@@ -517,14 +518,14 @@ ${this.slides.filter(s => s.category === 'modern').map(s =>
 
 ## 📊 PowerPoint Integration
 
-### Recommended Method: Background Video
+### Method 1: Background Video (Recommended)
 1. **Design** → **Format Background**
 2. **Picture or Texture Fill** → **File**
 3. Select your MP4 background
 4. ✅ Check **Loop** for continuous playback
 5. **Apply to All Slides** or current slide
 
-### Alternative Method: Insert Video Layer
+### Method 2: Insert Video Layer
 1. **Insert** → **Media** → **Video** → **Video on My PC**
 2. Select MP4 file and resize to fill slide completely
 3. **Playback** → **Start: Automatically** + **Loop until Stopped**
@@ -538,76 +539,43 @@ ${this.slides.filter(s => s.category === 'modern').map(s =>
 4. **Video options** → **Loop** for continuous playback
 5. Right-click → **Send to back** to use as background layer
 
-## 🎨 Design Guidelines
+## 💡 Animation Quality Features
 
-### Background Usage Recommendations
-- **Title backgrounds**: Perfect for impactful presentation openings
-- **Section backgrounds**: Ideal for dividing presentation sections
-- **Data backgrounds**: Excellent for charts, graphs, and statistics
-- **Transition slides**: Great for smooth content flow
-
-### Text Overlay Best Practices
-- **Classic backgrounds**: Use white or navy text for best contrast
-- **Modern backgrounds**: Dark text works well with minimal design
-- **Text shadows**: Add subtle shadows for better text visibility
-- **Content positioning**: Leave space for text in center areas
+### Timing Accuracy
+- **Frame-perfect capture**: Each frame captured at exact intervals
+- **Animation synchronization**: All animations reset and synchronized
+- **No speed distortion**: Original CSS animation timing preserved
+- **Smooth playback**: Optimized for seamless looping
 
 ## 🔧 Technical Specifications
 
-### Video Properties
-- **Codec**: H.264 with yuv420p pixel format
-- **Compression**: CRF ${QUALITY_PRESETS[CONFIG.quality].crf} (${CONFIG.quality} quality preset)
+- **Video Codec**: H.264 with yuv420p pixel format
+- **Compression**: CRF ${QUALITY_PRESETS[CONFIG.quality].crf} (${CONFIG.quality} quality)
 - **Frame Rate**: Exact ${CONFIG.fps} fps (matches CSS animation timing)
-- **Loop Optimization**: Seamless loop points for continuous playback
+- **Loop Optimization**: Seamless ${CONFIG.duration/1000}-second loops
 - **File Optimization**: Fast start enabled for immediate playback
 
-### Animation Accuracy
-- **Timing Method**: Frame-synchronized capture (${CONFIG.frameInterval.toFixed(1)}ms intervals)
-- **Animation Reset**: All animations synchronized to start time
-- **Quality Priority**: PNG intermediate format for maximum fidelity
-- **Performance**: GPU acceleration enabled for smooth rendering
+## 🎨 Design Guidelines
 
-## 💡 Professional Tips
+### Background Usage
+- **Title backgrounds**: Perfect for presentation openings
+- **Section backgrounds**: Great for dividing sections
+- **Data backgrounds**: Ideal for charts and statistics
 
-1. **Perfect Loops**: All backgrounds loop seamlessly at the ${CONFIG.duration/1000}-second mark
-2. **Layer Management**: Always place backgrounds behind content layers
-3. **File Size**: Optimized balance between quality and file size
-4. **Compatibility**: Universal playback support across platforms
-5. **Performance**: Videos optimized for smooth presentation software playback
+### Text Overlay Tips
+- **Classic backgrounds**: Use white or navy text
+- **Modern backgrounds**: Dark text works well
+- Add text shadows for better visibility
 
-## 🎬 Animation Details
+## 📞 Support
 
-### Classic Style Animations
-- **Organic flow shapes**: Smooth, natural movement patterns
-- **Wave elements**: Fluid, ocean-inspired animations
-- **Particle effects**: Subtle floating elements
-- **Color transitions**: Gradient animations with Arctic palette
-
-### Modern Style Animations  
-- **Geometric elements**: Clean, precise movement
-- **Minimal transitions**: Subtle, professional animations
-- **Grid patterns**: Structured, contemporary design
-- **Fade effects**: Smooth opacity transitions
-
-## 📞 Support & Customization
-
-### Documentation
 - **Repository**: https://github.com/TundraTough-hub/arctic-presentation-template
-- **Issues**: Report timing or quality problems via GitHub Issues
-- **Customization**: Contact for different durations or animation speeds
-
-### Animation Troubleshooting
-If animations appear different from browser preview:
-1. Check that CSS animation durations match export duration
-2. Verify browser compatibility with animation properties
-3. Test different quality settings for performance balance
-4. Ensure sufficient system resources during export
+- **Issues**: Report problems via GitHub Issues
 
 ---
 *Generated by Animation-Accurate Arctic Background Exporter*
-*Timing Method: Synchronized frame capture with original CSS animation timing*
 *Export Date: ${new Date().toISOString().split('T')[0]}*
-*Quality: ${CONFIG.quality.toUpperCase()} • FPS: ${CONFIG.fps} • Duration: ${CONFIG.duration/1000}s*
+*Timing: Frame-synchronized capture preserving CSS animation timing*
 `;
 
     fs.writeFileSync(path.join(CONFIG.outputDir, 'ANIMATION_ACCURATE_GUIDE.md'), guide);
@@ -616,8 +584,12 @@ If animations appear different from browser preview:
 
   cleanup() {
     // Remove temporary screenshot directory
-    if (fs.existsSync(CONFIG.screenshotDir)) {
-      fs.removeSync(CONFIG.screenshotDir);
+    try {
+      if (fs.existsSync(CONFIG.screenshotDir)) {
+        fs.removeSync(CONFIG.screenshotDir);
+      }
+    } catch (e) {
+      // Ignore cleanup errors
     }
   }
 

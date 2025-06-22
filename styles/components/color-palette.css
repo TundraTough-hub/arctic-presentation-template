@@ -1,0 +1,65 @@
+/* Color Palette Component Styles */
+
+.color-palette {
+    background: var(--neutral-white);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin: 3rem 0;
+    box-shadow: 0 8px 32px var(--shadow-subtle);
+    border: 1px solid var(--border-light);
+}
+
+.color-palette h3 {
+    font-size: 1.8rem;
+    color: var(--primary-blue);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.color-swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.color-swatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    background: var(--soft-gray);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.color-swatch:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px var(--shadow-subtle);
+    border-color: var(--arctic-cyan);
+}
+
+.swatch {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 3px solid var(--neutral-white);
+}
+
+.color-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.color-hex {
+    font-family: 'Courier New', monospace;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 500;
+}

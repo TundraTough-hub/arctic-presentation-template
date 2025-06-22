@@ -7,19 +7,15 @@
     "setup": "node setup.js",
     "export": "node export-backgrounds.js",
     "export-simple": "node export-simple.js",
-    "export-all": "npm run export && npm run export-simple",
-    "install-tools": "npm install",
+    "install-deps": "npm install --legacy-peer-deps",
     "test": "echo 'Testing export tools...' && node setup.js"
   },
   "dependencies": {
-    "timecut": "^0.1.7",
-    "puppeteer": "^22.0.0",
-    "puppeteer-screen-recorder": "^3.0.6",
-    "fs-extra": "^11.1.1",
-    "path": "^0.12.7"
+    "puppeteer": "19.0.0",
+    "puppeteer-screen-recorder": "^3.0.6"
   },
-  "devDependencies": {
-    "ffmpeg-static": "^5.2.0"
+  "optionalDependencies": {
+    "timecut": "^0.1.7"
   },
   "keywords": [
     "presentation",

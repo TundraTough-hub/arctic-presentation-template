@@ -11,7 +11,7 @@
     "test": "echo 'Testing export tools...' && node setup.js"
   },
   "dependencies": {
-    "puppeteer": "19.0.0",
+    "puppeteer": "^21.0.0",
     "puppeteer-screen-recorder": "^3.0.6"
   },
   "optionalDependencies": {

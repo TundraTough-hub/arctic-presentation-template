@@ -29,7 +29,7 @@ class InteractiveExporter {
       if (runSetup) {
         await this.runSetup();
       } else {
-        console.log('Please run setup first: npm run setup');
+        console.log('Please run setup first: npm install --legacy-peer-deps');
         this.exit();
         return;
       }
@@ -50,10 +50,10 @@ class InteractiveExporter {
   async runSetup() {
     console.log('\n🚀 Running setup...\n');
     try {
-      execSync('npm run setup', { stdio: 'inherit' });
+      execSync('npm install --legacy-peer-deps', { stdio: 'inherit' });
       console.log('\n✅ Setup complete!\n');
     } catch (error) {
-      console.log('\n❌ Setup failed. Please run: npm install\n');
+      console.log('\n❌ Setup failed. Please run: npm install --legacy-peer-deps\n');
       this.exit();
       return;
     }
@@ -119,7 +119,7 @@ class InteractiveExporter {
 
     const confirm = await this.askYesNo('Continue? (y/n): ');
     if (confirm) {
-      await this.runExport('node export-all-backgrounds.js');
+      await this.runExport('node export-animation-accurate.js');
     }
     
     await this.showContinueMenu();
@@ -132,7 +132,7 @@ class InteractiveExporter {
 
     const confirm = await this.askYesNo('Continue? (y/n): ');
     if (confirm) {
-      await this.runExport('node export-all-backgrounds.js --classic-only');
+      await this.runExport('node export-animation-accurate.js --classic-only');
     }
 
     await this.showContinueMenu();
@@ -145,7 +145,7 @@ class InteractiveExporter {
 
     const confirm = await this.askYesNo('Continue? (y/n): ');
     if (confirm) {
-      await this.runExport('node export-all-backgrounds.js --modern-only');
+      await this.runExport('node export-animation-accurate.js --modern-only');
     }
 
     await this.showContinueMenu();
@@ -155,12 +155,11 @@ class InteractiveExporter {
     console.log('\n⚡ Quick export settings:');
     console.log('• 8-second duration');
     console.log('• HD resolution (1280x720)');
-    console.log('• No still frames');
     console.log('• Estimated time: 1-2 minutes\n');
 
     const confirm = await this.askYesNo('Continue? (y/n): ');
     if (confirm) {
-      await this.runExport('node export-all-backgrounds.js --duration 8 --resolution hd --no-stills');
+      await this.runExport('node export-animation-accurate.js --duration 8 --resolution hd');
     }
 
     await this.showContinueMenu();
@@ -171,12 +170,13 @@ class InteractiveExporter {
     console.log('• 4K resolution (3840x2160)');
     console.log('• Ultra quality');
     console.log('• 15-second duration');
+    console.log('• 60fps frame rate');
     console.log('• Large file sizes');
     console.log('• Estimated time: 10-15 minutes\n');
 
     const confirm = await this.askYesNo('Continue? (y/n): ');
     if (confirm) {
-      await this.runExport('node export-all-backgrounds.js --resolution uhd --quality ultra --duration 15');
+      await this.runExport('node export-animation-accurate.js --resolution uhd --quality ultra --duration 15 --fps 60');
     }
 
     await this.showContinueMenu();
@@ -223,8 +223,16 @@ class InteractiveExporter {
     if (styleChoice === '2') styleFlag = '--classic-only';
     if (styleChoice === '3') styleFlag = '--modern-only';
 
+    // Frame rate choice
+    console.log('\nFrame rate options:');
+    console.log('1. 30 fps (standard)');
+    console.log('2. 60 fps (smoother)');
+    
+    const fpsChoice = await this.askQuestion('\nChoose frame rate (1-2): ');
+    const fps = fpsChoice === '2' ? 60 : 30;
+
     // Build command
-    let command = `node export-all-backgrounds.js --resolution ${resolution} --quality ${quality} --duration ${durationNum}`;
+    let command = `node export-animation-accurate.js --resolution ${resolution} --quality ${quality} --duration ${durationNum} --fps ${fps}`;
     if (styleFlag) command += ` ${styleFlag}`;
 
     console.log(`\n📋 Export command: ${command}\n`);
@@ -241,6 +249,7 @@ class InteractiveExporter {
     console.log('\n📁 Checking for existing exports...\n');
 
     const exportDirs = [
+      './mp4-backgrounds-accurate',
       './mp4-backgrounds-complete',
       './mp4-backgrounds-real',
       './mp4-backgrounds'
@@ -319,7 +328,7 @@ class InteractiveExporter {
       console.log('✅ Export completed successfully!\n');
       
       // Show where files were saved
-      const outputDirs = ['./mp4-backgrounds-complete', './mp4-backgrounds-real'];
+      const outputDirs = ['./mp4-backgrounds-accurate', './mp4-backgrounds-complete'];
       for (const dir of outputDirs) {
         if (fs.existsSync(dir)) {
           console.log(`📁 Files saved to: ${path.resolve(dir)}`);
@@ -330,7 +339,7 @@ class InteractiveExporter {
       console.log('\n═'.repeat(50));
       console.log('❌ Export failed!\n');
       console.log('Common solutions:');
-      console.log('• Ensure all dependencies are installed: npm run setup');
+      console.log('• Ensure all dependencies are installed: npm install --legacy-peer-deps');
       console.log('• Check available disk space');
       console.log('• Try a smaller resolution or duration');
       console.log('• Check the error message above for specific issues\n');
@@ -385,8 +394,8 @@ function showBanner() {
   console.log('');
   console.log('   ❄️  ARCTIC PRESENTATION BACKGROUNDS  ❄️');
   console.log('  ╔══════════════════════════════════════╗');
-  console.log('  ║          Professional Video          ║');
-  console.log('  ║       Background Exporter v2.0       ║');
+  console.log('  ║       Professional Video Export       ║');
+  console.log('  ║     Animation-Accurate Timing v2.1    ║');
   console.log('  ╚══════════════════════════════════════╝');
   console.log('');
 }

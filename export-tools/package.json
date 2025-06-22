@@ -13,7 +13,8 @@
     "export-4k": "node export-all-backgrounds.js --resolution uhd --quality ultra",
     "export-quick": "node export-all-backgrounds.js --duration 8 --no-stills",
     "export-premium": "node export-all-backgrounds.js --resolution uhd --quality ultra --duration 15",
-    "setup": "npm install && node setup-dependencies.js",
+    "setup": "npm install --legacy-peer-deps && node setup-dependencies.js",
+    "install-deps": "npm install --legacy-peer-deps",
     "test": "node export-all-backgrounds.js --help",
     "clean": "rm -rf mp4-backgrounds-* background-previews temp-*"
   },
@@ -35,7 +36,7 @@
   "author": "TundraTough",
   "license": "MIT",
   "dependencies": {
-    "puppeteer": "^22.0.0",
+    "puppeteer": "^19.0.0",
     "puppeteer-screen-recorder": "^3.0.6",
     "fs-extra": "^11.2.0",
     "archiver": "^7.0.1",

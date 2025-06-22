@@ -4,9 +4,12 @@
   "description": "Export Arctic presentation animated backgrounds to MP4 for PowerPoint/Google Slides",
   "main": "export-backgrounds.js",
   "scripts": {
+    "setup": "node setup.js",
     "export": "node export-backgrounds.js",
-    "export-all": "node export-all-backgrounds.js",
-    "install-tools": "npm install"
+    "export-simple": "node export-simple.js",
+    "export-all": "npm run export && npm run export-simple",
+    "install-tools": "npm install",
+    "test": "echo 'Testing export tools...' && node setup.js"
   },
   "dependencies": {
     "timecut": "^0.1.7",
@@ -24,8 +27,19 @@
     "google-slides",
     "animation",
     "mp4",
-    "export"
+    "export",
+    "arctic",
+    "tundra-tough",
+    "backgrounds"
   ],
   "author": "Arctic Outlook / Tundra Tough LLC",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TundraTough-hub/arctic-presentation-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TundraTough-hub/arctic-presentation-template/issues"
+  },
+  "homepage": "https://github.com/TundraTough-hub/arctic-presentation-template#readme"
 }

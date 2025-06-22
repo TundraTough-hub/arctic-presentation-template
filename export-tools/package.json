@@ -1,23 +1,25 @@
 {
   "name": "arctic-presentation-background-exporter",
-  "version": "2.0.0",
-  "description": "Professional background exporter for Arctic presentation templates",
-  "main": "export-reliable-backgrounds.js",
+  "version": "2.1.0",
+  "description": "Professional background exporter for Arctic presentation templates with animation timing accuracy",
+  "main": "export-animation-accurate.js",
   "scripts": {
     "start": "node interactive-export.js",
     "interactive": "node interactive-export.js",
-    "export": "node export-reliable-backgrounds.js",
+    "export": "node export-animation-accurate.js",
+    "export-accurate": "node export-animation-accurate.js",
     "export-reliable": "node export-reliable-backgrounds.js",
     "export-advanced": "node export-all-backgrounds.js",
-    "export-classic": "node export-reliable-backgrounds.js --classic-only",
-    "export-modern": "node export-reliable-backgrounds.js --modern-only",
-    "export-hd": "node export-reliable-backgrounds.js --resolution hd",
-    "export-4k": "node export-reliable-backgrounds.js --resolution uhd --quality ultra",
-    "export-quick": "node export-reliable-backgrounds.js --duration 8 --resolution hd",
-    "export-premium": "node export-reliable-backgrounds.js --resolution uhd --quality ultra --duration 15",
+    "export-classic": "node export-animation-accurate.js --classic-only",
+    "export-modern": "node export-animation-accurate.js --modern-only",
+    "export-hd": "node export-animation-accurate.js --resolution hd",
+    "export-4k": "node export-animation-accurate.js --resolution uhd --quality ultra",
+    "export-60fps": "node export-animation-accurate.js --fps 60",
+    "export-quick": "node export-animation-accurate.js --duration 8 --resolution hd",
+    "export-premium": "node export-animation-accurate.js --resolution uhd --quality ultra --duration 15 --fps 60",
     "setup": "npm install --legacy-peer-deps && node setup-dependencies.js",
     "install-deps": "npm install --legacy-peer-deps",
-    "test": "node export-reliable-backgrounds.js --help",
+    "test": "node export-animation-accurate.js --help",
     "clean": "rm -rf mp4-backgrounds-* background-previews temp-*"
   },
   "bin": {
@@ -33,7 +35,9 @@
     "mp4",
     "animation",
     "corporate",
-    "templates"
+    "templates",
+    "timing-accurate",
+    "css-animations"
   ],
   "author": "TundraTough",
   "license": "MIT",
@@ -76,6 +80,7 @@
       "high": "High quality, recommended",
       "ultra": "Maximum quality, large files"
     },
+    "supportedFrameRates": [15, 24, 30, 60],
     "outputFormats": ["mp4", "png"],
     "maxDuration": 30,
     "defaultDuration": 12,
@@ -84,8 +89,15 @@
       "modern": "Clean minimal animations with geometric elements"
     },
     "exportMethods": {
+      "accurate": "Animation-synchronized capture (preserves CSS timing)",
       "reliable": "Screenshot + FFmpeg (maximum compatibility)",
       "advanced": "Puppeteer Screen Recorder (requires compatible versions)"
+    },
+    "animationFeatures": {
+      "timingAccuracy": "Frame-perfect CSS animation capture",
+      "synchronization": "All animations reset and synchronized",
+      "frameRates": "15, 24, 30, 60 fps support",
+      "qualityOptimization": "GPU acceleration and backface visibility"
     }
   }
 }

@@ -201,7 +201,7 @@ class FixedSlideBackgroundExporter {
 
         // Enhance animations for better recording
         const style = document.createElement('style');
-        style.textContent = \`
+        style.textContent = `
           * {
             animation-play-state: running !important;
           }
@@ -227,7 +227,7 @@ class FixedSlideBackgroundExporter {
             padding: 0 !important;
             overflow: hidden !important;
           }
-        \`;
+        `;
         document.head.appendChild(style);
 
         console.log('Background elements prepared for recording');
@@ -268,15 +268,15 @@ class FixedSlideBackgroundExporter {
   }
 
   createUsageGuide() {
-    const guide = \`# Fixed Real Arctic Slide Backgrounds - Usage Guide
+    const guide = `# Fixed Real Arctic Slide Backgrounds - Usage Guide
 
 ## 📁 Exported Background Files
 
 These are the **actual backgrounds** from your Arctic presentation slides:
 
-- \\\`title-slide-background.mp4\\\` - Background from slide-01-title.html
-- \\\`section-divider-background.mp4\\\` - Background from slide-02-section-divider.html  
-- \\\`data-insights-background.mp4\\\` - Background from slide-03-data-insights.html
+- \`title-slide-background.mp4\` - Background from slide-01-title.html
+- \`section-divider-background.mp4\` - Background from slide-02-section-divider.html  
+- \`data-insights-background.mp4\` - Background from slide-03-data-insights.html
 
 ## 🎬 Video Specifications (Fixed)
 
@@ -351,7 +351,7 @@ The exported backgrounds should now match exactly what you see when viewing the 
 ---
 *Fixed export ensuring accurate background capture*
 *Resolution: ${CONFIG.width}x${CONFIG.height} • Duration: ${CONFIG.duration / 1000}s • Format: MP4*
-\`;
+`;
 
     fs.writeFileSync(path.join(CONFIG.outputDir, 'FIXED_BACKGROUNDS_GUIDE.md'), guide);
     console.log('📖 Created fixed backgrounds usage guide');

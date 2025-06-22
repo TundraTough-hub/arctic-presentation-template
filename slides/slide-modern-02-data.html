@@ -1,0 +1,168 @@
+<!-- Modern Data Visualization Slide Template -->
+<div class="slide" id="slide-modern-data" data-slide-type="data-insights">
+  <!-- Tooltip for PowerPoint Recreation -->
+  <div class="powerpoint-tooltip" data-tooltip="To recreate in PowerPoint: 1) Use SmartArt for flowing chart layouts 2) Insert circles and custom shapes for data points 3) Apply gradient fills and transparency effects 4) Use animation pane for progressive reveals">
+    
+    <!-- Flowing Data Background -->
+    <div class="data-background">
+      <div class="data-flow-shape flow-1" 
+           data-tooltip="Background accent: Large ellipse, Arctic Cyan gradient, 25% transparency, position behind main content"></div>
+      <div class="data-flow-shape flow-2" 
+           data-tooltip="Secondary shape: Organic curve using freeform drawing tool, Primary Blue fill, 15% transparency"></div>
+    </div>
+    
+    <!-- Main Content Grid -->
+    <div class="data-content-grid">
+      
+      <!-- Header Section -->
+      <div class="data-header" 
+           data-tooltip="Header section: Text box with gradient underline, use 'Insert Shapes > Lines' for accent line">
+        <h1 class="data-title">Arctic Climate Impact Assessment</h1>
+        <p class="data-subtitle">Temperature & Sea Ice Trends • 2020-2025 Data Analysis</p>
+        <div class="accent-line" 
+             data-tooltip="Accent line: Insert line shape, 4pt weight, gradient from Arctic Cyan to Primary Blue"></div>
+      </div>
+      
+      <!-- Key Metrics Cards -->
+      <div class="metrics-container" 
+           data-tooltip="Metrics section: Create rounded rectangles with drop shadows, arrange in flowing pattern">
+        
+        <div class="metric-card primary-metric" 
+             data-tooltip="Primary metric: Rectangle with rounded corners, Primary Blue gradient fill, white text, 24pt numbers">
+          <div class="metric-icon">🌡️</div>
+          <div class="metric-value">+2.3°C</div>
+          <div class="metric-label">Avg. Temperature Rise</div>
+          <div class="metric-trend positive" 
+               data-tooltip="Trend indicator: Small arrow shape, red fill for increase, green for decrease">↗</div>
+        </div>
+        
+        <div class="metric-card secondary-metric" 
+             data-tooltip="Secondary metric: Similar card, Arctic Cyan gradient, Dark Navy text, offset positioning">
+          <div class="metric-icon">🧊</div>
+          <div class="metric-value">-15%</div>
+          <div class="metric-label">Sea Ice Coverage</div>
+          <div class="metric-trend negative">↘</div>
+        </div>
+        
+        <div class="metric-card tertiary-metric" 
+             data-tooltip="Third metric: Accent Light gradient, positioned to create flowing arrangement">
+          <div class="metric-icon">⚡</div>
+          <div class="metric-value">85%</div>
+          <div class="metric-label">Renewable Potential</div>
+          <div class="metric-trend positive">↗</div>
+        </div>
+        
+      </div>
+      
+      <!-- Interactive Chart Area -->
+      <div class="chart-container" 
+           data-tooltip="Chart area: Use PowerPoint chart tools, customize with brand colors, apply 3D effects for depth">
+        
+        <!-- Chart Header -->
+        <div class="chart-header">
+          <h3 class="chart-title">5-Year Temperature Trend Analysis</h3>
+          <div class="chart-controls" 
+               data-tooltip="Chart controls: Create buttons using Action Settings in PowerPoint for interactivity">
+            <button class="chart-btn active" data-tooltip="Filter button: Rectangle with rounded corners, add hyperlink actions">Arctic</button>
+            <button class="chart-btn" data-tooltip="Secondary button: Same style, different color when inactive">Subarctic</button>
+            <button class="chart-btn" data-tooltip="Third button: Consistent styling across all controls">Coastal</button>
+          </div>
+        </div>
+        
+        <!-- Flowing Chart Visualization -->
+        <div class="flowing-chart" 
+             data-tooltip="Custom chart: Combine shapes and lines to create flowing data visualization, use transparency for overlapping areas">
+          
+          <!-- Data Points -->
+          <div class="data-points">
+            <div class="data-point point-2020" style="--year: 2020; --value: 65;" 
+                 data-tooltip="Data point: Circle shape, size based on value, Primary Blue fill, add text label">
+              <span class="point-value">-8.2°C</span>
+              <span class="point-year">2020</span>
+            </div>
+            <div class="data-point point-2021" style="--year: 2021; --value: 72;" 
+                 data-tooltip="2021 data point: Larger circle, Arctic Cyan fill, elevated position">
+              <span class="point-value">-7.1°C</span>
+              <span class="point-year">2021</span>
+            </div>
+            <div class="data-point point-2022" style="--year: 2022; --value: 78;" 
+                 data-tooltip="2022 data point: Continue pattern, adjust size and color intensity">
+              <span class="point-value">-6.4°C</span>
+              <span class="point-year">2022</span>
+            </div>
+            <div class="data-point point-2023" style="--year: 2023; --value: 85;" 
+                 data-tooltip="2023 data point: Larger size indicates higher value, warmer color">
+              <span class="point-value">-5.8°C</span>
+              <span class="point-year">2023</span>
+            </div>
+            <div class="data-point point-2024" style="--year: 2024; --value: 90;" 
+                 data-tooltip="2024 data point: Largest circle, gradient fill to show trend">
+              <span class="point-value">-5.2°C</span>
+              <span class="point-year">2024</span>
+            </div>
+          </div>
+          
+          <!-- Flowing Trend Line -->
+          <svg class="trend-line" viewBox="0 0 400 200" 
+               data-tooltip="Trend line: Use Insert > Shapes > Curves to draw smooth flowing line connecting data points">
+            <path d="M50,150 Q120,140 150,130 Q220,120 280,110 Q320,100 350,95" 
+                  stroke="url(#gradient-stroke)" stroke-width="4" fill="none" 
+                  stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="gradient-stroke" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#2A73B5"/>
+                <stop offset="100%" style="stop-color:#00AEEF"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          
+        </div>
+        
+      </div>
+      
+      <!-- Insights Panel -->
+      <div class="insights-panel" 
+           data-tooltip="Insights panel: Text box with rounded corners, Soft Gray background, bullet points with custom icons">
+        <h4 class="insights-title">Key Insights</h4>
+        <div class="insight-items">
+          <div class="insight-item" 
+               data-tooltip="Insight item: Bullet point with icon, use Insert > Icons for consistent symbols">
+            <span class="insight-icon">🔍</span>
+            <span class="insight-text">Accelerating warming trend across all Arctic regions</span>
+          </div>
+          <div class="insight-item">
+            <span class="insight-icon">📈</span>
+            <span class="insight-text">Temperature increase rate doubled since 2022</span>
+          </div>
+          <div class="insight-item">
+            <span class="insight-icon">🌍</span>
+            <span class="insight-text">Community adaptation strategies show 65% effectiveness</span>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- Decorative Data Flow Lines -->
+    <div class="data-flow-lines" 
+         data-tooltip="Flow lines: Use curved connectors to link chart elements, apply transparency and color gradients">
+      <div class="flow-line line-1"></div>
+      <div class="flow-line line-2"></div>
+    </div>
+    
+  </div>
+  
+</div>
+
+<!-- Usage Instructions -->
+<!-- 
+PowerPoint Recreation Guide:
+1. Background: Light gradient from white to Soft Gray
+2. Charts: Use built-in chart tools, customize colors to brand palette
+3. Data points: Insert circles, vary sizes, add text labels
+4. Trend lines: Use curve connector shapes with gradient colors
+5. Metrics cards: Rounded rectangles with drop shadows
+6. Interactive elements: Use Action Settings for button functionality
+7. Icons: Insert from PowerPoint icon library or use emojis
+8. Flow lines: Curved connectors with transparency effects
+-->

@@ -1,0 +1,31 @@
+{
+  "name": "arctic-presentation-background-exporter",
+  "version": "1.0.0",
+  "description": "Export Arctic presentation animated backgrounds to MP4 for PowerPoint/Google Slides",
+  "main": "export-backgrounds.js",
+  "scripts": {
+    "export": "node export-backgrounds.js",
+    "export-all": "node export-all-backgrounds.js",
+    "install-tools": "npm install"
+  },
+  "dependencies": {
+    "timecut": "^0.1.7",
+    "puppeteer": "^22.0.0",
+    "puppeteer-screen-recorder": "^3.0.6",
+    "fs-extra": "^11.1.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "ffmpeg-static": "^5.2.0"
+  },
+  "keywords": [
+    "presentation",
+    "powerpoint",
+    "google-slides",
+    "animation",
+    "mp4",
+    "export"
+  ],
+  "author": "Arctic Outlook / Tundra Tough LLC",
+  "license": "MIT"
+}

@@ -1,298 +1,272 @@
-# 🎬 Arctic Presentation Background Exporter
+# Arctic Presentation Background Exporter
 
-Export beautiful, animated slide backgrounds to MP4 files for seamless import into PowerPoint and Google Slides.
+Professional video background exporter for Arctic presentation templates. Export animated backgrounds from your slides to use in PowerPoint, Google Slides, Keynote, and other presentation software.
 
-## ✨ Features
+## 🎬 What This Does
 
-- **🎨 Modern Design**: Non-blocky, flowing organic shapes following 2025 design trends
-- **🌊 Smooth Animations**: CSS-based flowing animations optimized for professional presentations
-- **📱 High Quality**: Full HD (1920x1080) 60fps MP4 exports
-- **🔄 Seamless Loops**: Backgrounds loop perfectly for continuous playback
-- **🎯 Arctic Theme**: Uses Tundra Tough/Arctic Outlook brand colors
-- **⚡ Easy Integration**: Direct import into PowerPoint and Google Slides
+Converts your beautiful Arctic slide animations into **MP4 video backgrounds** that you can use in any presentation software:
+
+- **6 Different Background Styles**: Classic and modern variants
+- **Multiple Resolutions**: HD, Full HD, 4K, and presentation-optimized
+- **High Quality Videos**: Smooth 30fps animations with professional encoding
+- **Still Frame Exports**: PNG images for static use
+- **PowerPoint Ready**: Optimized for seamless integration
+
+## 📁 Exported Backgrounds
+
+### Classic Arctic Style (Dynamic & Flowing)
+- `arctic-title-classic-background.mp4` - Flowing title slide with organic shapes
+- `arctic-section-classic-background.mp4` - Wave-animated section divider
+- `arctic-data-classic-background.mp4` - Subtle data visualization background
+
+### Modern Arctic Style (Clean & Minimal)
+- `arctic-title-modern-background.mp4` - Minimalist title with geometric elements
+- `arctic-data-modern-background.mp4` - Clean data background with soft animations
+- `arctic-section-modern-background.mp4` - Contemporary section divider
 
 ## 🚀 Quick Start
 
-### 1. Install Dependencies
-
-First, make sure you have Node.js installed, then:
-
+### 1. Setup (First Time Only)
 ```bash
 cd export-tools
-node setup.js
+npm run setup
 ```
 
-This will install all required Node packages and check for FFmpeg.
-
-### 2. Export Backgrounds
-
+### 2. Export All Backgrounds
 ```bash
 npm run export
 ```
 
-This creates 4 animated MP4 backgrounds:
-- `title-slide-background.mp4`
-- `section-divider-background.mp4` 
-- `data-insights-background.mp4`
-- `content-slide-background.mp4`
+### 3. Use Exported Videos
+- Check `mp4-backgrounds-complete/` folder
+- Import MP4 files into your presentation software
+- See usage guide for detailed instructions
 
-### 3. Import to PowerPoint/Google Slides
+## 📋 Export Options
 
-Check the generated `BACKGROUND_USAGE_GUIDE.md` for detailed import instructions.
-
-## 📋 System Requirements
-
-- **Node.js** 14+ 
-- **FFmpeg** (for video encoding)
-- **Memory**: 2GB+ RAM recommended
-- **Storage**: ~100MB for exported videos
-
-### Installing FFmpeg
-
-**macOS:**
+### Quick Commands
 ```bash
-brew install ffmpeg
+# Export everything (recommended)
+npm run export
+
+# Classic style only
+npm run export-classic
+
+# Modern style only  
+npm run export-modern
+
+# High-definition (720p)
+npm run export-hd
+
+# Ultra high quality 4K
+npm run export-4k
+
+# Quick 8-second export
+npm run export-quick
+
+# Premium quality with longer duration
+npm run export-premium
 ```
 
-**Windows:**
-Download from [ffmpeg.org](https://ffmpeg.org/download.html)
-
-**Linux:**
+### Advanced Options
 ```bash
-sudo apt install ffmpeg
+# Custom resolution and quality
+node export-all-backgrounds.js --resolution uhd --quality ultra
+
+# Specific duration
+node export-all-backgrounds.js --duration 15
+
+# Skip still frame generation
+node export-all-backgrounds.js --no-stills
+
+# See all options
+node export-all-backgrounds.js --help
 ```
 
-## 🎨 Background Types
+## 🎯 Resolution Options
 
-### Title Slide Background
-Perfect for presentation opening slides with:
-- Prominent flowing shapes
-- Professional gradient overlay
-- Arctic-themed color palette
-
-### Section Divider Background  
-Clean transition backgrounds featuring:
-- Subtle wave animations
-- Minimal distractions
-- Professional section breaks
-
-### Data Insights Background
-Optimized for charts and graphs with:
-- Minimal animation interference
-- High contrast support
-- Data-friendly aesthetics
-
-### Content Slide Background
-Versatile background for any content:
-- Balanced visual interest
-- Text-friendly contrast
-- General-purpose design
-
-## ⚙️ Configuration
-
-Edit `export-backgrounds.js` to customize:
-
-```javascript
-const CONFIG = {
-  duration: 10,    // Video length in seconds
-  fps: 60,         // Frame rate
-  width: 1920,     // Video width
-  height: 1080,    // Video height
-  quality: 'high'  // 'high', 'medium', 'low'
-};
-```
-
-## 🎨 Color Palette
-
-All backgrounds use the Arctic brand colors:
-
-| Color | Hex | Usage |
-|-------|-----|-------|
-| Primary Blue | `#2A73B5` | Main titles & headers |
-| Arctic Cyan | `#00AEEF` | Highlight accents |
-| Dark Navy | `#152F52` | Body text areas |
-| Accent Light | `#AAC8E0` | Background fills |
-| Neutral White | `#FFFFFF` | Text backgrounds |
-| Soft Gray | `#F5F7FA` | Section dividers |
-
-## 📁 File Structure
-
-```
-export-tools/
-├── package.json              # Dependencies
-├── setup.js                  # Installation script
-├── export-backgrounds.js     # Main export script
-├── temp-backgrounds/         # Generated HTML files
-└── mp4-backgrounds/          # Exported MP4 files
-    ├── title-slide-background.mp4
-    ├── section-divider-background.mp4
-    ├── data-insights-background.mp4
-    ├── content-slide-background.mp4
-    └── BACKGROUND_USAGE_GUIDE.md
-```
-
-## 🔧 Technical Details
-
-### Export Process
-1. **HTML Generation**: Creates background-only HTML files with CSS animations
-2. **Browser Capture**: Uses timecut + puppeteer for frame-by-frame capture
-3. **Video Encoding**: FFmpeg encodes frames to optimized MP4
-4. **Quality Control**: H.264 encoding with yuv420p for universal compatibility
-
-### Animation Features
-- **Organic Shapes**: Flowing, non-blocky animations following 2025 design trends
-- **Smooth Transitions**: CSS keyframes optimized for 60fps playback
-- **Seamless Loops**: Animations designed to loop perfectly
-- **Performance**: Lightweight CSS animations for smooth browser rendering
+| Option | Resolution | Aspect Ratio | Best For |
+|--------|------------|--------------|----------|
+| `hd` | 1280×720 | 16:9 | Quick exports, smaller files |
+| `fhd` | 1920×1080 | 16:9 | **Recommended** - Full HD quality |
+| `uhd` | 3840×2160 | 16:9 | 4K presentations, maximum quality |
+| `presentation` | 1366×768 | 16:9 | Standard presentation displays |
 
 ## 📊 PowerPoint Integration
 
-### Background Video Method
-1. Design → Format Background → Picture/Texture Fill
-2. Select MP4 file → Check "Loop"
-3. Apply to slide(s)
+### Method 1: Background Video (Recommended)
+1. **Design** → **Format Background**
+2. **Picture or Texture Fill** → **File**
+3. Select your MP4 background
+4. ✅ Check **Loop** 
+5. **Apply to All Slides**
 
-### Video Insert Method  
-1. Insert → Media → Video → Video on My PC
-2. Right-click → Send to Back
-3. Resize to fill slide
-4. Set Playback → Start: Automatically → Loop
+### Method 2: Insert as Video
+1. **Insert** → **Media** → **Video** → **Video on My PC**
+2. Select MP4 file
+3. Right-click → **Send to Back**
+4. Resize to fill slide
+5. **Playback** → **Start: Automatically** + **Loop until Stopped**
 
 ## 📊 Google Slides Integration
 
-### Video Insert Method
-1. Insert → Video → Upload
-2. Select MP4 file
-3. Resize and position
-4. Video Options → Loop
+1. **Insert** → **Video** → **Upload**
+2. Select your MP4 background
+3. Resize to fill slide
+4. **Video options** → **Loop**
+5. Right-click → **Send to back**
 
-### Static Background Method
-1. Take screenshot of video frame
-2. Change Background → Upload image
+## 🛠️ Technical Specifications
 
-## 🛠️ Troubleshooting
+### Video Output
+- **Format**: MP4 (H.264)
+- **Frame Rate**: 30 fps
+- **Duration**: 12 seconds (seamless loop)
+- **Audio**: None (silent)
+- **Compression**: Optimized for quality and compatibility
 
-### Common Issues
+### Quality Levels
+- **Low**: Fast export, 1MB bitrate
+- **Medium**: Balanced, 2MB bitrate  
+- **High**: Recommended, 4MB bitrate
+- **Ultra**: Maximum quality, 8MB bitrate
+
+## 📁 File Structure
+
+After export, you'll find:
+
+```
+export-tools/
+├── mp4-backgrounds-complete/
+│   ├── classic/                    # Classic style backgrounds
+│   │   ├── arctic-title-classic-background.mp4
+│   │   ├── arctic-section-classic-background.mp4
+│   │   └── arctic-data-classic-background.mp4
+│   ├── modern/                     # Modern style backgrounds
+│   │   ├── arctic-title-modern-background.mp4
+│   │   ├── arctic-data-modern-background.mp4
+│   │   └── arctic-section-modern-background.mp4
+│   ├── stills/                     # High-res PNG frames
+│   │   └── [slide-name]-still.png
+│   └── COMPLETE_BACKGROUNDS_GUIDE.md
+```
+
+## 🎨 Background Descriptions
+
+### Classic Arctic Backgrounds
+Perfect for **dynamic, engaging presentations**:
+- **Flowing organic shapes** with smooth animations
+- **Wave elements** that create movement
+- **Particle effects** for visual interest
+- **Rich color gradients** with Arctic theme
+
+### Modern Arctic Backgrounds  
+Ideal for **corporate, professional presentations**:
+- **Clean geometric elements** 
+- **Subtle animations** that don't distract
+- **Minimalist design** with plenty of white space
+- **Contemporary Arctic color palette**
+
+## 🔧 System Requirements
+
+### Required
+- **Node.js 16+** ([Download](https://nodejs.org/))
+- **2GB+ RAM** for video processing
+- **1GB+ free disk space** for exports
+
+### Automatically Handled
+- **Chrome/Chromium** (downloaded by Puppeteer)
+- **FFmpeg** (included via ffmpeg-static)
+- **All Node.js dependencies** (installed via npm)
+
+## 🚨 Troubleshooting
+
+### Setup Issues
+```bash
+# Check Node.js version
+node --version  # Should be 16+
+
+# Clean install
+rm -rf node_modules
+npm install
+
+# Run setup again
+npm run setup
+```
+
+### Export Issues
+```bash
+# Increase memory for large exports
+node --max-old-space-size=8192 export-all-backgrounds.js
+
+# Check disk space
+df -h
+
+# Export with basic settings
+npm run export-quick
+```
+
+### Common Problems
+
+**"Module not found" errors**
+```bash
+npm install
+```
 
 **"FFmpeg not found"**
-- Install FFmpeg using instructions above
-- Ensure it's in your system PATH
+- The exporter uses `ffmpeg-static` automatically
+- No need to install FFmpeg separately
 
-**"timecut command failed"**
-- Check Node.js version (14+ required)
-- Try: `npm install timecut` manually
+**Videos appear blank**
+- Ensure slide HTML files exist in `../slides/` folder
+- Check that CSS files are properly linked
+- Verify paths in slide HTML files
 
-**Large file sizes**
-- Reduce duration in CONFIG
-- Lower quality setting to 'medium' or 'low'
-- Reduce fps to 30
+**Export takes too long**
+- Use `--duration 8` for shorter videos
+- Use `--resolution hd` for faster processing
+- Use `--no-stills` to skip PNG generation
 
-**Choppy animations**
-- Increase fps to 60
-- Set quality to 'high'
-- Check available system memory
+## 📞 Support & Customization
 
-**PowerPoint won't play video**
-- Use MP4 format (default)
-- Check PowerPoint version (2016+ recommended)
-- Try "Insert Video" method instead of background
+### Documentation
+- **Main Repository**: [Arctic Presentation Template](https://github.com/TundraTough-hub/arctic-presentation-template)
+- **Usage Guide**: Check `USAGE_GUIDE.md` in main folder
+- **Troubleshooting**: See `TROUBLESHOOTING.md`
 
-## 🎯 Design Philosophy
+### Getting Help
+1. **Check existing issues**: [GitHub Issues](https://github.com/TundraTough-hub/arctic-presentation-template/issues)
+2. **Create new issue**: Include error messages and system info
+3. **Review documentation**: Most questions are answered in the guides
 
-Following 2025 presentation design trends, these backgrounds feature:
+### Custom Requirements
+- **Different durations**: Use `--duration <seconds>`
+- **Custom resolutions**: Modify `CONFIG.resolutions` in the script
+- **Additional formats**: Contact for WebM or GIF export options
+- **Batch processing**: Script supports multiple slides automatically
 
-- **Flowing Organic Shapes**: Replacing blocky rectangular designs
-- **Asymmetrical Layouts**: Breaking traditional grid patterns
-- **Minimalist Aesthetics**: Clean, uncluttered visual space
-- **Dynamic Movement**: Subtle animations that enhance without distracting
-- **Professional Color Harmony**: Arctic-inspired palette for credibility
+## 🎯 Best Practices
 
-## 🌐 Browser Compatibility
+### Choosing Backgrounds
+- **Title slides**: Use title-specific backgrounds
+- **Data slides**: Use data-optimized backgrounds
+- **Section breaks**: Use section divider backgrounds
+- **Content slides**: Use versatile content backgrounds
 
-The export process uses:
-- **Chromium/Chrome**: For consistent rendering
-- **Modern CSS**: Supported animations and transforms
-- **Hardware Acceleration**: GPU-optimized where available
+### PowerPoint Tips
+- **Keep text readable**: Use sufficient contrast
+- **Test playback**: Ensure videos loop smoothly
+- **File size**: Balance quality vs. presentation file size
+- **Compatibility**: Test with your PowerPoint version
 
-## 📈 Performance Optimization
-
-### Export Speed
-- Multi-threaded FFmpeg encoding
-- Optimized CSS animations
-- Efficient browser capture
-
-### File Size
-- H.264 compression optimization
-- Quality vs. size balancing
-- Configurable bitrate settings
-
-## 🎭 Animation Types
-
-### Flowing Shapes
-- Organic border-radius morphing
-- Smooth translation and rotation
-- Layered depth effects
-
-### Wave Overlays  
-- Clip-path polygon animations
-- Gradient color transitions
-- Natural wave motion
-
-### Particle Systems
-- Floating element animations
-- Staggered timing effects
-- Subtle environmental details
-
-## 🔄 Customization Options
-
-### Timing Adjustments
-```javascript
-// Animation duration multipliers
-flowFloat: '15s',     // Shape movement speed
-waveFlow: '8s',       // Wave animation speed  
-particleFloat: '6s'   // Particle movement speed
-```
-
-### Color Variations
-```javascript
-// Custom color schemes
-primaryColor: '#2A73B5',
-accentColor: '#00AEEF',
-backgroundGradient: 'linear-gradient(135deg, #F5F7FA 0%, #AAC8E0 100%)'
-```
-
-### Shape Complexity
-```javascript
-// Shape border-radius variations
-borderRadius: '50% 30% 70% 40%',  // Organic shapes
-transform: 'scale(1.1)',          // Size variations
-opacity: '0.15'                   // Transparency levels
-```
-
-## 📞 Support & Contribution
-
-### Repository
-- **GitHub**: [arctic-presentation-template](https://github.com/TundraTough-hub/arctic-presentation-template)
-- **Issues**: Report bugs and feature requests
-- **Discussions**: Community support and ideas
-
-### Custom Requests
-For custom backgrounds, different color schemes, or specific animation requirements:
-1. Create a GitHub issue with your requirements
-2. Include presentation context and target audience
-3. Specify technical requirements (resolution, duration, etc.)
-
-## 📄 License
-
-MIT License - Use freely for commercial and personal presentations.
-
-## 🏆 Credits
-
-- **Design**: Arctic Outlook / Tundra Tough LLC
-- **Development**: Arctic Presentation Template Team
-- **Animation Inspiration**: 2025 web design trends
-- **Technical Stack**: Node.js, Puppeteer, FFmpeg, CSS3
+### Performance
+- **HD resolution** for most uses (good quality, reasonable file size)
+- **Full HD** for professional presentations
+- **4K only** when specifically needed (large files)
+- **12-second duration** provides natural loops
 
 ---
 
-*Creating professional, modern presentation backgrounds for the Arctic business community.*
+*Arctic Presentation Background Exporter v2.0*  
+*Professional video backgrounds for presentation software*  
+*Compatible with PowerPoint, Google Slides, Keynote, and more*

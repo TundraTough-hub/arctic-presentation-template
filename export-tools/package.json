@@ -1,35 +1,50 @@
 {
   "name": "arctic-presentation-background-exporter",
-  "version": "1.0.0",
-  "description": "Export Arctic presentation animated backgrounds to MP4 for PowerPoint/Google Slides",
-  "main": "export-backgrounds.js",
+  "version": "2.0.0",
+  "description": "Professional background exporter for Arctic presentation templates",
+  "main": "export-all-backgrounds.js",
   "scripts": {
-    "setup": "node setup.js",
-    "export": "node export-backgrounds.js",
-    "export-simple": "node export-simple.js",
-    "install-deps": "npm install --legacy-peer-deps",
-    "test": "echo 'Testing export tools...' && node setup.js"
-  },
-  "dependencies": {
-    "puppeteer": "^21.0.0",
-    "puppeteer-screen-recorder": "^3.0.6"
-  },
-  "optionalDependencies": {
-    "timecut": "^0.1.7"
+    "export": "node export-all-backgrounds.js",
+    "export-classic": "node export-all-backgrounds.js --classic-only",
+    "export-modern": "node export-all-backgrounds.js --modern-only",
+    "export-hd": "node export-all-backgrounds.js --resolution hd",
+    "export-4k": "node export-all-backgrounds.js --resolution uhd --quality ultra",
+    "export-quick": "node export-all-backgrounds.js --duration 8 --no-stills",
+    "export-premium": "node export-all-backgrounds.js --resolution uhd --quality ultra --duration 15",
+    "setup": "npm install && node setup-dependencies.js",
+    "test": "node export-all-backgrounds.js --help",
+    "clean": "rm -rf mp4-backgrounds-* background-previews temp-*"
   },
   "keywords": [
     "presentation",
-    "powerpoint",
-    "google-slides",
-    "animation",
-    "mp4",
-    "export",
+    "backgrounds",
     "arctic",
-    "tundra-tough",
-    "backgrounds"
+    "powerpoint",
+    "video",
+    "export",
+    "mp4",
+    "animation",
+    "corporate",
+    "templates"
   ],
-  "author": "Arctic Outlook / Tundra Tough LLC",
+  "author": "TundraTough",
   "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^22.0.0",
+    "puppeteer-screen-recorder": "^3.0.6",
+    "fs-extra": "^11.2.0",
+    "archiver": "^7.0.1",
+    "sharp": "^0.33.4",
+    "ffmpeg-static": "^5.2.0",
+    "cli-progress": "^3.12.0",
+    "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "timecut": "^0.3.3"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/TundraTough-hub/arctic-presentation-template.git"
@@ -37,5 +52,22 @@
   "bugs": {
     "url": "https://github.com/TundraTough-hub/arctic-presentation-template/issues"
   },
-  "homepage": "https://github.com/TundraTough-hub/arctic-presentation-template#readme"
+  "homepage": "https://github.com/TundraTough-hub/arctic-presentation-template#readme",
+  "exportOptions": {
+    "supportedResolutions": {
+      "hd": "1280x720 (HD)",
+      "fhd": "1920x1080 (Full HD)",
+      "uhd": "3840x2160 (4K UHD)",
+      "presentation": "1366x768 (Standard Presentation)"
+    },
+    "supportedQualities": {
+      "low": "Fast export, smaller files",
+      "medium": "Balanced quality and size",
+      "high": "High quality, recommended",
+      "ultra": "Maximum quality, large files"
+    },
+    "outputFormats": ["mp4", "png"],
+    "maxDuration": 30,
+    "defaultDuration": 12
+  }
 }
